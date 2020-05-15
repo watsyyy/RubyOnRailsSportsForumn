@@ -1,0 +1,16 @@
+<br />
+ 
+ <%= form_tag(discussions_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Discussions" %>
+    <%= submit_tag "Search", :name => nil %>
+	<%= link_to 'Clear', discussions_path %>
+
+<% end %>
+
+<br />
+<h1>Listing Discussions</h1>
+<div id="discussions">
+  <%= render @discussions %>
+  
+</div>
+

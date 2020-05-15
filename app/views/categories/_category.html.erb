@@ -1,0 +1,7 @@
+<h1>Recommended</h1>
+
+<% @discussions.featured.each do |discussion| %>
+  <p><%= link_to discussion.subject, discussion_path(discussion) %></p>
+<% end>
+
+<%= link_to 'Back', discussions_path %>

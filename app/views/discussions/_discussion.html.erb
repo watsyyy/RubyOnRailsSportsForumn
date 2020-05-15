@@ -1,0 +1,12 @@
+<%= div_for discussion do %>
+  <h3>
+    <%= link_to discussion.title, discussion %>
+    <% if discussion.owned_by? current_user %>
+      <span class='actions'>
+        <%= link_to "Edit", edit_discussion_path(discussion) %>
+        <%= link_to "Delete", discussion, confirm: "Are you sure?", method: :delete %>
+      </span>
+    <% end %>
+  </h3>
+  <%= simple_format discussion.body %>
+<% end %>

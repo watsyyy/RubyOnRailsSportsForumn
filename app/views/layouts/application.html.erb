@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discussion</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<body>
+<div class="navbar">
+  <h1 style="text-align:center"><%= link_to "DISCUSSION CENTRE", root_path %></h1>
+  
+  <% if logged_in? %>
+          <%= link_to "Logout", logout_path %>
+		  <%= link_to "Edit Password", edit_user_path(current_user) %> 
+		  <%= link_to "Create New Discussion", new_discussion_path %> 
+        <% else %>
+		
+		  <%= link_to "Login", login_path %> 
+		  
+		  <%= link_to "Sign up", new_user_path %> 
+          <%= link_to "Create New Discussion", new_discussion_path %> 
+		  
+        <% end %>
+</div>	
+    <div id="main">
+      <%= content_tag(:p, notice, class: 'notice') if notice.present? %>
+      <%= content_tag(:p, alert, class: 'alert') if alert.present? %>
+      <%= yield %>
+    </div>
+	
+    <div id="footer">
+      The discussion centre</a>
+  </div>
+</body>
+</html>

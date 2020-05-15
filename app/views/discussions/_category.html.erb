@@ -1,0 +1,7 @@
+<h1>Recommended</h1>
+
+<% @categories.featured.each do |category| %>
+  <p><%= link_to category.subject, category_path(category) %></p>
+<% end>
+
+<%= link_to 'Back', categories_path %>
